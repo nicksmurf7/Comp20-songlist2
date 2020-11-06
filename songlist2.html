@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<title>songlist</title>
+	<meta charset="utf-8"/>
+	<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body >
+
+	<h1>Cover Band</h1>
+	<h2>Part 2</h2>
+	<div id = "part_2"></div>
+	<h2>Part 3/4 </h2>
+	<div id = "part_4"></div>
+	<div id = "list"></div>
+
+	<script language="javascript">
+		function makeSelect(id, array )
+		{
+			var t= "";
+			t = "<select id='" + id + "'>";
+			array.forEach(function(genre) {
+			   t += "<option>" + genre + "</option>";
+			})
+			t+= "</select>";
+			return t;
+		}
+
+		genre_list = ["ALL"];
+
+		function filter()
+		{
+			type = document.getElementById("Genres").value;
+
+			filtered_list = genre_filter(type);
+			alert(filtered_list);
+			document.getElementById("list").innerHTML = filtered_list;
+
+		}
+
+		function genre_filter(type){
+			list = ""
+
+			temp.forEach(function(song) {
+				if( type == "ALL" || song.Genre.includes(type) ){
+					/* display title, artist*/
+					list += "<b>" + song.Title + "</b> </br>"
+				    +  "Artist: " + song.Artist + "</br>"
+				    +  "Genre:" ;
+				    genre_str = "";
+				    /* display genres */
+				    song.Genre.forEach(function(genre) {
+				    	genre_str += genre + ", ";
+				    	if(genre_list.includes(genre) == false){
+				    		genre_list.push(genre);
+				    	}
+				    })
+				    list += genre_str.substring(0, genre_str.length-2);
+				    /* display released year */
+				    list += "</br>" +  "Released " + song.release_year + "</br></br>";
+				}
+			})
+			return list;
+		}
+
+
+		$.get( "https://nsmurf7.github.io/Comp20-songlist2/songlist.json",
+			function( data ) {
+				/* Part 2: Serialize and display */
+				json_str = JSON.stringify(data);
+				document.getElementById("part_2").innerHTML = json_str;
+
+				/* Part 3: User friendly display  */
+				songlist= "";
+				temp = data;
+				data.forEach(function(song) {
+					/* display title, artist*/
+					songlist += "<b>" + song.Title + "</b> </br>"
+				    +  "Artist: " + song.Artist + "</br>"
+				    +  "Genre:" ;
+				    genre_str = "";
+				    /* display genres */
+				    song.Genre.forEach(function(genre) {
+				    	genre_str += genre + ", ";
+				    	if(genre_list.includes(genre) == false){
+				    		genre_list.push(genre);
+				    	}
+				    })
+				    songlist += genre_str.substring(0, genre_str.length-2);
+				    /* display released year */
+				    songlist += "</br>" +  "Released " + song.release_year + "</br></br>";
+				})
+
+				songlist += "</ul>";
+
+				/* Part 4: Filter the data */
+				form = "<form> ";
+				form += makeSelect("Genres", genre_list);
+				form += "<button id =\"btn\" type = 'button'>Filter</button></form>";
+				document.getElementById("part_4").innerHTML = form;
+				document.getElementById("list").innerHTML = songlist;
+
+				$(function() {
+				    $("#btn").click(function() {
+				    	type = document.getElementById("Genres").value;
+						filtered_list = genre_filter(type);
+						document.getElementById("list").innerHTML = filtered_list;
+
+				 	});
+				});
+
+			}
+
+		)
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>
