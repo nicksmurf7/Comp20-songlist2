@@ -5,17 +5,17 @@
 	<meta charset="utf-8"/>
 	<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous">
 	</script>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="songstyle.css">
 </head>
 
 
 <body >
 
-	<h1>Strokes The Cover Band</h1>
-	<h2> Section 1</h2>
-	<div id = "sec_1"></div>
-	<h2> Section 2</h2>
+	<h1>Cover Band</h1>
+	<h2>The Songlist: </h2>
 	<div id = "sec_2"></div>
+	<h2> Filtered Songlist: </h2>
+	<div id = "sec_3"></div>
 	<div id = "list"></div>
 
 	<script language="javascript">
@@ -30,36 +30,35 @@
 			return t;
 		}
 
-		genre_list = ["ALL"];
+		genre_list = ["Pick One"];
 
 		function filter()
 		{
 			type = document.getElementById("Genres").value;
 
-			filtered_list = genre_filter(type);
-			alert(filtered_list);
-			document.getElementById("list").innerHTML = filtered_list;
+			new_list = pick(type);
+			alert(new_list);
+			document.getElementById("list").innerHTML = new_list;
 
 		}
 
-		function genre_filter(type){
-			list = ""
+		function pick(type){
+			filtered = ""
 
 			temp.forEach(function(song) {
-				if( type == "ALL" || song.Genre.includes(type) ){
-					/* display title, artist*/
-					list += "<b>" + song.Title + "</b> </br>"
+				if( type == "Pick One" || song.Genre.includes(type) ){
+					filtered += "<b>" + song.Title + "</b> </br>"
 				    +  "Artist: " + song.Artist + "</br>"
 				    +  "Genre:" ;
-				    genre_str = "";
-				    /* display genres */
+				    new_genre = "";
+
 				    song.Genre.forEach(function(genre) {
-				    	genre_str += genre + ", ";
+				    	 new_genre += genre + ", ";
 				    	if(genre_list.includes(genre) == false){
 				    		genre_list.push(genre);
 				    	}
 				    })
-				    list += genre_str.substring(0, genre_str.length-2);
+				    list += new_genre.substring(0, new_genre.length-2);
 				    /* display released year */
 				    list += "</br>" +  "Released " + song.release_year + "</br></br>";
 				}
@@ -68,11 +67,11 @@
 		}
 
 
-		$.get( "https://nsmurf7.github.io/Comp20-songlist2/songlist.json",
+		$.get( "https://nicksmurf7.github.io/Comp20-songlist2/songlist.json",
 			function( data ) {
 				/* Part 2: Serialize and display */
 				json_str = JSON.stringify(data);
-				document.getElementById("sec_1").innerHTML = json_str;
+				document.getElementById("sec_2").innerHTML = json_str;
 
 				/* Part 3: User friendly display  */
 				songlist= "";
@@ -82,15 +81,15 @@
 					songlist += "<b>" + song.Title + "</b> </br>"
 				    +  "Artist: " + song.Artist + "</br>"
 				    +  "Genre:" ;
-				    genre_str = "";
+				    new_genre = "";
 				    /* display genres */
 				    song.Genre.forEach(function(genre) {
-				    	genre_str += genre + ", ";
+				    	new_genre += genre + ", ";
 				    	if(genre_list.includes(genre) == false){
 				    		genre_list.push(genre);
 				    	}
 				    })
-				    songlist += genre_str.substring(0, genre_str.length-2);
+				    songlist += new_genre.substring(0, new_genre.length-2);
 				    /* display released year */
 				    songlist += "</br>" +  "Released " + song.release_year + "</br></br>";
 				})
@@ -101,14 +100,14 @@
 				form = "<form> ";
 				form += makeSelect("Genres", genre_list);
 				form += "<button id =\"btn\" type = 'button'>Filter</button></form>";
-				document.getElementById("sec_2").innerHTML = form;
+				document.getElementById("sec_3").innerHTML = form;
 				document.getElementById("list").innerHTML = songlist;
 
 				$(function() {
 				    $("#btn").click(function() {
 				    	type = document.getElementById("Genres").value;
-						filtered_list = genre_filter(type);
-						document.getElementById("list").innerHTML = filtered_list;
+						filtered = genre_filter(type);
+						document.getElementById("list").innerHTML = filtered;
 
 				 	});
 				});
