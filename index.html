@@ -11,11 +11,11 @@
 
 <body >
 
-	<h1>Cover Band</h1>
-	<h2>Part 2</h2>
-	<div id = "part_2"></div>
-	<h2>Part 3/4 </h2>
-	<div id = "part_4"></div>
+	<h1>Strokes The Cover Band</h1>
+	<h2> Section 1</h2>
+	<div id = "sec_1"></div>
+	<h2> Section 2</h2>
+	<div id = "sec_2"></div>
 	<div id = "list"></div>
 
 	<script language="javascript">
@@ -72,7 +72,7 @@
 			function( data ) {
 				/* Part 2: Serialize and display */
 				json_str = JSON.stringify(data);
-				document.getElementById("part_2").innerHTML = json_str;
+				document.getElementById("sec_1").innerHTML = json_str;
 
 				/* Part 3: User friendly display  */
 				songlist= "";
@@ -101,7 +101,7 @@
 				form = "<form> ";
 				form += makeSelect("Genres", genre_list);
 				form += "<button id =\"btn\" type = 'button'>Filter</button></form>";
-				document.getElementById("part_4").innerHTML = form;
+				document.getElementById("sec_2").innerHTML = form;
 				document.getElementById("list").innerHTML = songlist;
 
 				$(function() {
