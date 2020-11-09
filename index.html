@@ -11,7 +11,7 @@
 
 <body >
 
-	<h1>Cover Band</h1>
+	<h1>The Strokes Cover Band</h1>
 	<h2>The Songlist: </h2>
 	<div id = "sec_2"></div>
 	<h2> Filtered Songlist: </h2>
@@ -43,11 +43,11 @@
 		}
 
 		function pick(type){
-			filtered = ""
+			list = ""
 
 			temp.forEach(function(song) {
 				if( type == "Pick One" || song.Genre.includes(type) ){
-					filtered += "<b>" + song.Title + "</b> </br>"
+					list += "<b>" + song.Title + "</b> </br>"
 				    +  "Artist: " + song.Artist + "</br>"
 				    +  "Genre:" ;
 				    new_genre = "";
@@ -102,26 +102,15 @@
 				form += "<button id =\"btn\" type = 'button'>Filter</button></form>";
 				document.getElementById("sec_3").innerHTML = form;
 				document.getElementById("list").innerHTML = songlist;
-
 				$(function() {
 				    $("#btn").click(function() {
 				    	type = document.getElementById("Genres").value;
-						filtered = genre_filter(type);
+						filtered = pick(type);
 						document.getElementById("list").innerHTML = filtered;
-
 				 	});
 				});
-
 			}
-
 		)
-
-
-
 	</script>
-
-
-
-
 </body>
 </html>
