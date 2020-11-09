@@ -1,15 +1,15 @@
 [
   	{"Artist": ["The Strokes"], "Title":"Is This It", "Genre" : ["‎Alternative"], "release_year": 2001},
+    {"Artist": ["ASAP Rocky"], "Title":"Excuse Me", "Genre" : ["‎Hip Hop"], "release_year": 2015},
   	{"Artist": ["The Strokes"], "Title":"The Modern Age", "Genre" : ["‎Alternative"], "release_year": 2001},
   	{"Artist": ["The Strokes"], "Title":"Soma", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Barely Legal", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Someday", "Genre" : ["‎Alternative‎"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Alone, Together", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Last Nite", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Hard To Explain", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"When It Started", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Trying Your Luck", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["The Strokes"], "Title":"Take It Or Leave It", "Genre" : ["‎Alternative"], "release_year": 2001},
-	{"Artist": ["Snoop Dogg"], "Title":"Gin and Juice", "Genre" : ["‎Hip Hop"], "release_year": 1993}
-	
+	  {"Artist": ["The Strokes"], "Title":"Barely Legal", "Genre" : ["‎Alternative"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"Someday", "Genre" : ["‎Alternative‎"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"Alone, Together", "Genre" : ["‎Alternative"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"Last Nite", "Genre" : ["‎Alternative"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"Hard To Explain", "Genre" : ["‎Alternative"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"When It Started", "Genre" : ["‎Alternative"], "release_year": 2001},
+	  {"Artist": ["The Strokes"], "Title":"Trying Your Luck", "Genre" : ["‎Alternative"], "release_year": 2001},
+    {"Artist": ["The Strokes"], "Title":"Take It Or Leave It", "Genre" : ["‎Alternative"], "release_year": 2001},
+    {"Artist": ["Snoop Dogg"], "Title":"Gin And Juice", "Genre" : ["‎Rap"], "release_year": 1993}
 ]
