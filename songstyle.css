@@ -1,0 +1,46 @@
+h1,h2,h3,h4,h5,h6{
+	font-family: "Lucida Console", Courier, monospace;
+	font-weight: 600;
+	color:#0080ff;
+}
+
+div{
+	font-family:  'Open Sans';
+	font-size: 20px;
+}
+
+h1{
+	color:#0080ff;
+}
+
+h2{
+	color:#0080ff;
+}
+
+
+body{
+	font-family: "Lucida Console", Courier, monospace;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+select{
+  	font-family: "Lucida Console", Courier, monospace;
+  	width: 40%;
+  	font-size: 20px;
+	border: 10%;
+  	border-bottom: 2px solid ;
+  	color: #0080ff;
+  	margin-bottom: 1%;
+}
+
+button{
+	color: white;
+  	font: "Lucida Console", Courier, monospace;
+  	font-size: 100%;
+  	background-color: #0080ff;
+  	width: 8%;
+  	box-sizing: border-box;
+}
